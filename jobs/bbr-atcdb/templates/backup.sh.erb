@@ -13,11 +13,11 @@ PAUSE_WEB_COMPONENTS="UPDATE components SET paused = true WHERE name IN ('tracke
 UNPAUSE_WEB_COMPONENTS="UPDATE components SET paused = false WHERE name IN ('tracker','collector_pipelines');"
 
 function unpause() {
-  "/var/vcap/packages/database-backup-restorer-postgres-11/bin/psql" "${PG_CONNECTION_STRING}" -c "${UNPAUSE_WEB_COMPONENTS}"
+  "/var/vcap/packages/database-backup-restorer-postgres-${POSTGRES_VERSION}/bin/psql" "${PG_CONNECTION_STRING}" -c "${UNPAUSE_WEB_COMPONENTS}"
 }
 
 # paused all concourse components to ensure bbr success
-"/var/vcap/packages/database-backup-restorer-postgres-11/bin/psql" "${PG_CONNECTION_STRING}" -c "${PAUSE_WEB_COMPONENTS}"
+"/var/vcap/packages/database-backup-restorer-postgres-${POSTGRES_VERSION}/bin/psql" "${PG_CONNECTION_STRING}" -c "${PAUSE_WEB_COMPONENTS}"
 # unpause all concourse components to after bbr finishes
 trap unpause EXIT
 sleep 30

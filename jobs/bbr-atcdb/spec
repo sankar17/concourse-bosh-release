@@ -44,6 +44,11 @@ properties:
     description: |
       Password to use when connecting.
 
+  postgresql.version:
+    description: |
+      Version of postgresql
+    default: 15
+
   postgresql.tls.enabled:
     description: |
       Whether or not to use TLS when connecting to the database.

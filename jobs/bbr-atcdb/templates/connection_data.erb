@@ -193,12 +193,3 @@ mkdir -p /var/vcap/jobs/bbr-atcdb/config/env
 -%>
 
 <%= "PG_CONNECTION_STRING=\""+connection_string+"\"" %>
-
-<%
-if postgres_version.empty?
-  postgresqlVersion = "15"
-else
-  postgresqlVersion = postgres_version
-end
--%>
-<%= "POSTGRES_VERSION=\""+postgresqlVersion+"\"" %>

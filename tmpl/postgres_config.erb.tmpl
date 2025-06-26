@@ -11,6 +11,7 @@
     postgres_tls_ca = ""
     postgres_tls_public_cert = ""
     postgres_tls_private_key = ""
+    postgres_version = p("postgresql.version")
 
     if postgres_tls_enabled
       postgres_tls_skip_host_verify = p("postgresql.tls.skip_host_verify", false)
